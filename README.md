@@ -1,64 +1,77 @@
-### Backend Development
+`nestjs-project`
+This project is a basic NestJS service that provides functionality to interact with a MySQL database. It includes API endpoints for inserting/querying the database.
 
-#### Overview
+`Prerequisites`
+Ensure the following are installed and configured:
+    Node.js (version 20.x or higher)
+    npm (for managing dependencies)
+    MySQL configured with a User and a Database
 
-This challenge will test the following skills:
+`Steps to Start Application` 
 
-- NodeJS environment (Node LTS)
-- Typescript proficiency
-- Relational databases
-- REST APIs
-- Validation
-- Code Documentation
-- Automated Testing
+1. Clone the repository `git clone <repo>`
+   
+2. Install project dependencies `npm install`
 
-Do not be discouraged if you are unable to complete aspects of the challenge, it is designed to test all levels of ability
+3. Ensure MySQL database is up running and accessible in local machine
 
-#### Rules
+4. create a .env file at the root of the project to store the configuration details for MySQL
+      DB_PORT=3306
+      DB_HOST=localhost
+      DB_USER=your_user
+      DB_PASSWORD=your_password3
+      DB_NAME=your_database_name
 
-- Complete the challenge(s) on your own 
-- Referencing of online resources and use of tools is expected
-- All code, markup, and assets should be pushed to the provided repository
-- You are encouraged to ask us questions at any point
-- Note any deviations from the specification
-- You may use any supporting library you deem appropriate
+5. Run application using npm run start . The application runs on port 3000
 
-#### Instructions
+6. Once the application is running, you can interact with the API using any HTTP client (e.g., Postman, curl)
+    
+    API Endpoints:
+    
+    `Create a node with a specified parent`
+      Method: POST
+      URL: /node/
+      Description: Create a node with a specified parent
+      Request Body:
+          {
+            "name": "HDD",
+            "parentNodeId": 27
+          }
+      Response Format:
+      Status: 200 OK
+      Body: Returns the created node object
 
-1. Set up a NodeJS Typescript project
-2. Create a relational database with a schema for the following data structure:
 
-- A PC (root node) is built from a tree of nodes. Each node has a name. The path of a node can be inferred from the name hierarchy (e.g. _'/root/parent/child'_).
-- Each node can have any number of properties. A property is a key value pair, where the key is a string and the value is a decimal number.
+    `Add a new property on a specific existing node`
+      Method: POST
+      URL: /property/:nodeId
+      Description: Add a new property on a specific existing node
+      Request Body:
+          {
+            "name": "Capacity1",
+            "value": "5120.00"
+          }
+      Response Format:
+      Status: 200 OK
+      Body: Returns the created property object 
 
-3. Develop a way of interacting with this database in the NodeJS project. You may use an ORM of your own choice
-4. Seed the database with the following structure (entries with values are properties, others are nodes):
 
-- AlphaPC
-  - Height: 450.00
-  - Width: 180.00
-  - Processing
-    - CPU
-      - Cores: 4
-      - Power: 2.41
-    - Graphics
-      - RAM: 4000.00
-      - Ports: 8.00
-    - RAM: 32000.00
-  - Storage
-    - SSD
-      - Capacity: 1024.00
-      - WriteSpeed: 250.00
-    - HDD
-      - Capacity: 5120.00
-      - WriteSpeed: 1.724752
+    `Get a Node Subtree by Node Path`
+      Method: GET
+      URL: /node/subtree?nodePath=/root/parent/
+      Description: This endpoint returns all nodes that match the given path as a prefix
+      Query Parameters:
+          nodePath (required) 
+      Response Format:
+      Status: 200 OK
+      Body: Returns an array of node objects that match the provided nodePath      
 
-5. Expose HTTP endpoints for the following operations:
+7. Run Unit Test with command `npm run test`      
 
-    1. Create a node with a specified parent
-    2. Add a new property on a specific existing node
-    3. Return the subtree of nodes with their properties for a provided node path
+   
 
-6. Create unit tests for endpoint **3** above.
 
-7. Create a readme guide on how to run the project, interact with the API and perform the tests.
+
+
+
+
