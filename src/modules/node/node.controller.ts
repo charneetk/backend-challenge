@@ -1,7 +1,7 @@
 import { Controller, Get, Post, Body, Patch, Param, Delete, Query } from '@nestjs/common';
 import { CreateNodeDto, QueryNodeByPathDto } from './dto/node.dto';
 import { NodeService } from './node.service';
-import { Node } from './entities/node.entity';
+import { Node } from '../../entities/node.entity';
 
 @Controller('node')
 export class NodeController {

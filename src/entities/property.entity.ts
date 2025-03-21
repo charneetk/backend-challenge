@@ -1,5 +1,5 @@
 import { Entity, Column, PrimaryGeneratedColumn, ManyToOne } from 'typeorm';
-import { Node } from "../../node/entities/node.entity"
+import { Node } from "./node.entity"
 
 @Entity()
 export class Property {

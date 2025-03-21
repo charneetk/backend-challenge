@@ -1,9 +1,9 @@
 import { BadRequestException, HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { NodeService } from 'src/node/node.service';
+import { Property } from 'src/entities/property.entity';
+import { NodeService } from 'src/modules/node/node.service';
 import { Repository } from 'typeorm';
 import { AddPropertyDto } from './dto/property.dto';
-import { Property } from './entities/property.entity';
 
 @Injectable()
 export class PropertyService {

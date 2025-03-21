@@ -1,4 +1,4 @@
-import { Property } from '../../property/entities/property.entity';
+import { Property } from './property.entity';
 import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
 
 @Entity({name: 'node'})

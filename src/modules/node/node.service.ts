@@ -2,7 +2,7 @@ import { BadRequestException, HttpException, HttpStatus, Injectable } from '@nes
 import { InjectRepository } from '@nestjs/typeorm';
 import { Like, Repository } from 'typeorm';
 import { CreateNodeDto } from './dto/node.dto';
-import { Node } from './entities/node.entity';
+import { Node } from '../../entities/node.entity';
 
 @Injectable()
 export class NodeService {
